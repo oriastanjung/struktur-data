@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-void insert(int *inputID, int *inputAge, char inputName[][20], int *inputData);
-void show(int *inputID, int *inputAge, char inputName[][20], int *inputData);
-void delete(int *inputID, int *inputAge, char inputName[][20], int *inputData);
+void insert(int *inputID, char inputName[][20], int *inputAge, int *inputData);
+void show(int *inputID, char inputName[][20], int *inputAge, int *inputData);
+void delete(int *inputID, char inputName[][20], int *inputAge, int *inputData);
 
 
 int main()
@@ -26,7 +26,7 @@ int main()
 
     if (option == 1)
     {
-        insert(id, age, name, &numberOfData);
+        insert(id, name, age , &numberOfData);
         goto Main;
     }
 
@@ -34,7 +34,7 @@ int main()
     {
         printf("\nDelete Data\n");
         
-        delete(id, age, name, &numberOfData);
+        delete(id,name, age , &numberOfData);
         goto Main;
     }
 
@@ -44,7 +44,7 @@ int main()
             printf("\nSorry, there is no data to show\n");
         }else{
             printf("\nShow Data List\n");
-            show(id, age, name, &numberOfData);
+            show(id, name, age,  &numberOfData);
         }
         goto Main;
     }
@@ -65,7 +65,7 @@ int main()
 }
 
 // all method using prototypes function
-void insert(int *inputID, int *inputAge, char inputName[][20], int *inputData)
+void insert(int *inputID, char inputName[][20], int *inputAge, int *inputData)
 {   
     printf("\n\tInput New Data\n");
     printf("\nInput Customer ID : ");
@@ -77,7 +77,7 @@ void insert(int *inputID, int *inputAge, char inputName[][20], int *inputData)
     *inputData = *inputData + 1;
 }
 
-void show(int *inputID, int *inputAge, char inputName[][20], int *inputData)
+void show(int *inputID, char inputName[][20], int *inputAge, int *inputData)
 {
     for (int i = 0; i < *inputData; i++)
     {
@@ -87,7 +87,7 @@ void show(int *inputID, int *inputAge, char inputName[][20], int *inputData)
     }
 }
 
-void delete(int *inputID, int *inputAge, char inputName[][20], int *inputData)
+void delete(int *inputID, char inputName[][20], int *inputAge, int *inputData)
 {
     int isFound = 0;
     int indexFound;
